@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import os
 from langchain.chat_models import ChatOpenAI
-from langchain.agents import initialize_agent, Tool
+from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
 from langchain.tools import tool
 from langchain.callbacks.tracers.langchain import LangChainTracer
