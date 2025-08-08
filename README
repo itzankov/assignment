@@ -17,3 +17,8 @@ Ex.: I'm born 1974, so I'm 51. There is 0.006069 chance I'll die this
 year. Out of 100 000, born in 1974, 89955 are still alive.  And the expectation
 is that I'll live 28.22 more years
 
+maim.py: Is the main application. To run it:  uvicorn main:app --reload
+It exposes two tools:
+* recommender for TV shows based on the tv.csv trained classifier
+* life expectancy calculator based on the life_expectancy.csv data
+
