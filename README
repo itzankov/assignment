@@ -1,0 +1,7 @@
+The project trains a simple decision tree clasifier and exposes it as a
+tool that LLM can use in order to recomment TV shows based on age and sex.
+
+The dataset used is hand generated.
+
+I also generated a second dataset that contains statictical data about life
+expectancy, based on age and sex.

@@ -6,16 +6,10 @@ from langchain.agents import initialize_agent, Tool
 from langchain.agents.agent_types import AgentType
 from langchain.tools import tool
 from langchain.callbacks.tracers.langchain import LangChainTracer
-import pandas as pd
-from  sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
+import train
 
-df = pd.read_csv("tv.csv")
-X = df.drop(columns=["likes"])
-y = df["likes"]
+model = train.train_model()
 
-model = DecisionTreeClassifier()
-model.fit(X, y)
 
 # Load environment variables
 os.environ["LANGCHAIN_API_KEY"] = ""
