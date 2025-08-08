@@ -1,7 +1,19 @@
 The project trains a simple decision tree clasifier and exposes it as a
 tool that LLM can use in order to recomment TV shows based on age and sex.
 
-The dataset used is hand generated.
+tv.csv: The dataset used used for training of the clasifier.
 
-I also generated a second dataset that contains statictical data about life
-expectancy, based on age and sex.
+life_table.csv: A dataset containing acurate statistics regarding life
+expectancy.
+
+The columns are as follows
+* age - The age of the person
+* sex - 1 means male, 0 - means female
+* risk - the probability the person will die this year
+* alive - The number of people of that age, out of 100k, still alive
+* expectation - The life expectancy
+
+Ex.: I'm born 1974, so I'm 51. There is 0.006069 chance I'll die this
+year. Out of 100 000, botn in 1974, 89955 are still alive.  And the expectation
+is that I'll live 28.22 more years
+
