@@ -20,10 +20,14 @@ app = FastAPI()
 
 # Define a simple tool
 @tool
-def recommend(age: int, sex: int) -> str:
+def recommend(age: int, sex: str) -> str:
     """recommend tv show."""
     try:
-        result = model.predict([age, sex]);
+        if sex.lower() [0] == "m":
+            user_sex = 1
+        else
+            user_sex = 0;
+        result = model.predict([age, user_sex]);
         return f"Result: {result[0]}"
     except Exception as e:
         return f"Error: {str(e)}"

@@ -1,9 +1,9 @@
-The project trains a simple decision tree clasifier and exposes it as a
+The project trains a simple decision tree classifier and exposes it as a
 tool that LLM can use in order to recomment TV shows based on age and sex.
 
-tv.csv: The dataset used used for training of the clasifier.
+tv.csv: The dataset used used for training of the classifier.
 
-life_table.csv: A dataset containing acurate statistics regarding life
+life_table.csv: A dataset containing accurate statistics regarding life
 expectancy.
 
 The columns are as follows
@@ -14,6 +14,6 @@ The columns are as follows
 * expectation - The life expectancy
 
 Ex.: I'm born 1974, so I'm 51. There is 0.006069 chance I'll die this
-year. Out of 100 000, botn in 1974, 89955 are still alive.  And the expectation
+year. Out of 100 000, born in 1974, 89955 are still alive.  And the expectation
 is that I'll live 28.22 more years
 
