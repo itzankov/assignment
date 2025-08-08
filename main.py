@@ -6,6 +6,16 @@ from langchain.agents import initialize_agent, Tool
 from langchain.agents.agent_types import AgentType
 from langchain.tools import tool
 from langchain.callbacks.tracers.langchain import LangChainTracer
+import pandas as pd
+from  sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+
+df = pd.read_csv("tv.csv")
+X = df.drop(columns=["likes"])
+y = df["likes"]
+
+model = DecisionTreeClassifier()
+model.fit(X, y)
 
 # Load environment variables
 os.environ["LANGCHAIN_API_KEY"] = ""
@@ -16,17 +26,17 @@ app = FastAPI()
 
 # Define a simple tool
 @tool
-def life_expectancy(expression: age) -> str:
-    """Evaluates a basic math expression."""
+def recommend(age: int, sex: int) -> str:
+    """recommend tv show."""
     try:
-        result = eval(expression)
-        return f"Result: {result}"
+        result = model.predict([age, sex]);
+        return f"Result: {result[0]}"
     except Exception as e:
         return f"Error: {str(e)}"
 
 # Initialize LangChain agent with LangSmith tracing
 llm = ChatOpenAI(temperature=0)
-tools = [life_expectancy]
+tools = [recommend]
 tracer = LangChainTracer(project_name=os.environ["LANGCHAIN_PROJECT"])
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, callbacks=[tracer])
 
