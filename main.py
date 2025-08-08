@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 import os
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, Tool
@@ -54,9 +53,5 @@ llm = ChatOpenAI(temperature=0)
 tools = [recommend_tv_show, life_expectancy]
 tracer = LangChainTracer(project_name=os.environ["LANGCHAIN_PROJECT"])
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, callbacks=[tracer])
-
-# Request model
-class UserInput(BaseModel):
-    message: str
 
 # Endpoint
